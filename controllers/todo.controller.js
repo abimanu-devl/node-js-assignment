@@ -30,7 +30,7 @@ const updateItem = async (req, res) => {
     if (req.body) {
         await ToDoList.findOneAndUpdate(req.params.id, req.body)
             .then(() => {
-                res.status(204).send({
+                res.send({
                     message: 'Item updated successfully',
                 });
             })
@@ -46,7 +46,7 @@ const deleteItem = async (req, res) => {
         console.log(id);
         await ToDoList.findByIdAndDelete(req.params.id)
             .then(() => {
-                res.status(204).send({
+                res.send({
                     message: 'Item deleted successfully'
                 })
             })
